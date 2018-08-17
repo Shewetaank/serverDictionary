@@ -76,6 +76,11 @@ public class FileProcessor {
         }
     }
 
+    /**
+     * write to the client XML file
+     * @param clientFile
+     * @param clientDocs
+     */
     private void writeToClientXMLFile(String clientFile, ClientDocs clientDocs) {
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(ClientDocs.class);
@@ -87,8 +92,14 @@ public class FileProcessor {
         }
     }
 
-    private String createFileAtLocation(String clientDictLocation, FileType client) {
-        String path = clientDictLocation + "/" + client.getText() + ".xml";
+    /**
+     * Create the XML files at location
+     * @param dictLocation
+     * @param type
+     * @return
+     */
+    private String createFileAtLocation(String dictLocation, FileType type) {
+        String path = dictLocation + "/" + type.getText() + ".xml";
         File f = new File(path);
         try{
             if(f.exists()){
@@ -104,6 +115,10 @@ public class FileProcessor {
         return path;
     }
 
+    /**
+     * process each and create the nodelist for client and server xmls
+     * @param filePath
+     */
     private void processFile(String filePath) {
         try {
             File file = new File(filePath);
@@ -118,6 +133,12 @@ public class FileProcessor {
         }
     }
 
+    /**
+     * create client file nodes
+     * @param doc
+     * @return
+     * @throws Exception
+     */
     private ClientNode writeToClientFile(Document doc) throws Exception{
         return new ClientNode() {{
             setDocumentName(doc.getDocumentElement().getElementsByTagName("document_name").item(0)
@@ -129,6 +150,12 @@ public class FileProcessor {
         }};
     }
 
+    /**
+     * create server file nodes
+     * @param doc
+     * @return
+     * @throws Exception
+     */
     private ServerNode writeToServerFile(Document doc) throws Exception{
         return new ServerNode() {{
             setDocumentName(doc.getDocumentElement().getElementsByTagName("document_name").item(0)
@@ -142,6 +169,11 @@ public class FileProcessor {
         }};
     }
 
+    /**
+     * get the list of the files
+     * @param filePath
+     * @return
+     */
     public List<String> getFilesList(String filePath){
         List<String> results = new ArrayList<>();
         File[] files = new File(filePath).listFiles((dir, name) -> !name.equals(".DS_Store"));
