@@ -14,4 +14,4 @@ java -jar dictionary.jar -src /Users/shewetaankindora/files -clientDir /Users/sh
 3. Browse to the out directory for the server and client files. The output will be there. 
 
 Note- In case the input files are missing the top nodes that particular file will be skipped and shown in the output of the program.
-
+A good practice to add some test cases but I have not added them for this task.
