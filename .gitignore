@@ -24,4 +24,6 @@ hs_err_pid*
 
 out/
 .gradle/
+.idea/libraries/
+.idea/modules/
 
