@@ -17,6 +17,7 @@ public class App {
                     pathIsValid("Client Dir", clientDir) &&
                     pathIsValid("Server Dir", serverDir)){
                 new CommandLineProcessor(srcDir, clientDir, serverDir).process();
+                System.out.println("Output has been created at directories: " + clientDir + " " + serverDir);
             }
         }
     }
@@ -38,6 +39,7 @@ public class App {
         File f = new File(path);
         if(!f.isDirectory()){
             System.out.println("Invalid Directory path for: " + src + " " + path);
+            System.out.println("Exiting program.");
             return false;
         }
         return true;
