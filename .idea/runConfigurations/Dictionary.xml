@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Dictionary" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="App" />
+    <module name="dictionary" />
+    <option name="PROGRAM_PARAMETERS" value="-src $USER_HOME$/files -clientDir $USER_HOME$/output/client -serverDir $USER_HOME$/output/server" />
+    <method />
+  </configuration>
+</component>
